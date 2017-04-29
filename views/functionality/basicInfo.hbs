@@ -1,0 +1,82 @@
+<div class="container body-content">
+    <div class="row">
+        {{#if articles}}
+            <h2>Статии</h2>
+        {{/if}}
+        {{#each articles}}
+            <div class="col-md-6" style="height: 250px">
+                <article>
+                    <header>
+                        <h2>{{this.title}}</h2>
+                    </header>
+
+                    <p>{{this.content}}
+                    </p>
+
+                    <small class="author">
+                        {{this.author.fullName}}
+                    </small>
+
+
+                    <div class="pull-right">
+                        <a class="button"
+                           href="/newsCreation/details/{{this.id}}">Прочети повече &raquo;</a>
+                    </div>
+
+                </article>
+            </div>
+        {{/each}}
+    </div>
+</div>
+
+<div class="container body-content">
+    <div class="row">
+
+        {{#if deletions}}
+            <h2>Изтрити статии</h2>
+        {{/if}}
+
+        {{#each deletions}}
+            <div class="col-md-6 articleBox" style="height: 250px">
+                <article>
+                    <header>
+                        <h2>{{this.title}}</h2>
+                        <p class="authors">Created by:{{this.creator}}</p>
+                        <p class="authors">Deleted by:{{this.deletor}}</p>
+                    </header>
+                    <p class="contentForCut">{{this.content}}</p>
+
+                </article>
+            </div>
+        {{/each}}
+
+
+    </div>
+</div>
+
+<div class="container body-content">
+    <div class="row">
+        {{#if unanswered}}
+            <h2>Отговорени въпроси</h2>
+        {{/if}}
+        {{#each unanswered}}
+            <div class="col-md-6" style="height: 400px">
+                <article>
+                    <header>
+                        <h3>Зададен от: {{this.author}} mail: {{this.authorMail}}</h3>
+                        <h4>Тема: {{this.subject}}</h4>
+                    </header>
+                    <h5>Въпрос</h5>
+                    <p>{{this.content}}</p>
+                    <h3>Отговорен от: {{this.name}}</h3>
+                    <h4>Отговор</h4>
+                    <p>{{this.answer}}</p>
+
+                </article>
+
+
+            </div>
+
+        {{/each}}
+    </div>
+</div>
